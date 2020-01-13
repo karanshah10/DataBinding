@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="userList"
+            type="com.example.demodatabinding.UserModel" />
+
+        <variable
+            name="userListAdapter"
+            type="com.example.demodatabinding.UserListRecyclerViewAdapter" />
+
+        <variable
+            name="holder"
+            type="com.example.demodatabinding.UserListRecyclerViewAdapter.UserDataViewHolder" />
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/llParent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{()->holder.onUserItemClick()}"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{userList.name}" />
+
+        <TextView
+            android:id="@+id/tvEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text='@{String.format("Email : %s", userList.email)}' />
+
+        <TextView
+            android:id="@+id/tvMobile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text='@{"Mobile : "+userList.mobile}'
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tvAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text='@{@string/age+" : "+userList.age}'
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+</layout>
